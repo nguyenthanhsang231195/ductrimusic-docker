@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tiny Upload - QsvProgram (25/10/2016)</title>
+<meta name="author" content="QsvProgram">
+<link href="/admin/css/bootstrap.css" rel="stylesheet">
+<link href="/admin/css/bootstrap-theme.css" rel="stylesheet">
+<link href="/admin/css/style.css" rel="stylesheet">
+<link href="/admin/css/responsive.css" rel="stylesheet">
+<style>
+html, body {
+	background: #fff;
+}
+#tinyupload {
+	margin: 20px auto 0;
+	max-width: 400px;
+}
+#tinyupload .plupload {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<form id="tinyupload">
+  <div id="tinypickr" class="plupload clearfix">
+		<div class="pull-left">
+		  <a id="tinybtn" href="#pick" class="btn btn-primary btn-sm">Chọn hình upload</a>
+		  <div class="status">No runtime found.</div>
+		  <input type="hidden" name="image" value="">
+		</div>
+		<div class="preview pull-right"></div>
+  </div>
+</form>
+
+<script src="//code.jquery.com/jquery-1.11.2.js"></script> 
+<script>window.jQuery || document.write('<script src="/admin/js/jquery-1.11.2.js"><\/script>')</script>  
+<script src="/admin/js/bootstrap.js"></script> 
+<script src="/admin/ext/js-cookie/js.cookie.js"></script>
+<script src="/admin/ext/plupload/plupload.full.js"></script>
+<link href="/admin/ext/fancybox/jquery.fancybox.css" rel="stylesheet">
+<script src="/admin/ext/fancybox/jquery.fancybox.js"></script> 
+<script src="/admin/js/application.js"></script> 
+
+<script>
+var form = $('#tinyupload');
+
+form.find('.plupload').each(function(){
+	var $upload = $(this),
+			$pick = $upload.find('a'),
+			$status = $upload.find('.status'),
+			$preview = $upload.find('.preview');
+	
+	var uploader = new plupload.Uploader({
+		runtimes : 'html5,gears,flash,silverlight',
+		browse_button : $pick.attr('id'),
+		container: $upload.attr('id'),
+		url : '/process/upload.php',
+		max_file_size : '32mb',
+		chunk_size: '1mb',
+		unique_names: false,
+		multi_selection: false,
+		
+		// Specify what files to browse for
+		filters: [
+			{title: 'Image files', extensions: 'jpg,jpeg,png,gif,svg,psd,ai,cdr,swf'},
+			{title: 'Doc files', extensions: 'pdf,doc,docx,xls,xlsx,ppt,pptx,txt'},
+			{title: 'Zip files', extensions: 'zip,rar,gz,tar'}
+		],
+
+      	// Authentication
+      	multipart_params: {
+        	"fwjwt": Cookies.get('fwjwt')
+      	},
+
+		// Flash/Silverlight paths
+		flash_swf_url : '/admin/ext/plupload/plupload.flash.swf',
+		silverlight_xap_url : '/admin/ext/plupload/plupload.silverlight.xap'
+	});
+	
+	uploader.bind('Init', function(up, params) {
+		$status.html('Current runtime: '+params.runtime);
+
+		if(params.runtime=='html5') {
+			setTimeout(function() {
+				var $inp = form.find('input[type="file"]');
+				$inp.click();
+			}, 0);
+		}
+	});
+	
+	uploader.bind('FilesAdded', function(up, files) {
+		$.each(files, function(i, file) {
+			$preview.attr('id', file.id);
+			$preview.html('Uploading ... <b></b>');
+		});
+		up.refresh(); // Reposition Flash/Silverlight
+	});
+	
+	uploader.bind('QueueChanged', function(up) {
+		up.start(); // Auto start upload
+	});
+	
+	uploader.bind('UploadProgress', function(up, file) {
+		$('#'+file.id+' b').html(file.percent+'%');
+	});
+	
+	uploader.bind('Error', function(up, err) {
+		$preview.append('Error: '+err.code+', Message: '+err.message+'</div>');
+		up.refresh(); // Reposition Flash/Silverlight
+	});
+	
+	uploader.bind('FileUploaded', function(up, file, info) {
+		var res = $.parseJSON(info.response),
+		value = res.result;
+		$upload.find('input[type="hidden"]').val(value);
+		
+		var display = image_display(value,50);
+		$preview.html(display);
+
+		// Send file data to TinyMCE
+		if(parent.tinymce) {
+			var win = parent.tinymce.activeEditor.windowManager;
+			win.getParams().oninsert(value, file.name);
+	    win.close();
+	  }
+	});
+	
+	$upload.data('upload',uploader);
+	uploader.init();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+version: "2"
+services:
+  ductrimusic_www:
+    build: apache-php56
+    ports:
+      - 31001:80
+    links:
+      - ductrimusic_mysql:mysql
+    volumes:
+      - ../www:/var/www/html
+    depends_on:
+      - ductrimusic_mysql
+
+  ductrimusic_mysql:
+    build: mysql57
+    ports:
+      - 31002:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=docker
+    volumes:
+      - ductrimusic-data:/var/lib/mysql
+
+  ductrimusic_admin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 31003:80
+    environment:
+      - PMA_USER=root
+      - PMA_PASSWORD=docker
+      - UPLOAD_LIMIT=64M
+    links:
+      - ductrimusic_mysql:db
+    depends_on:
+      - ductrimusic_mysql
+
+volumes:
+  ductrimusic-data:

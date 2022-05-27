@@ -1,0 +1,12 @@
+{
+  "require": {
+    "phpmailer/phpmailer": "^6.0",
+    "mobiledetect/mobiledetectlib": "^2.8",
+    "phpfastcache/phpfastcache": "^6.1",
+    "firebase/php-jwt": "^5.0",
+    "sunra/php-simple-html-dom-parser": "^1.5",
+    "phpoffice/phpexcel": "^1.8",
+    "guzzlehttp/guzzle": "6.5.2",
+    "monolog/monolog": "^1.21"
+  }
+}

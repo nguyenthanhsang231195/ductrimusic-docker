@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TinyMCE 4.3.12 - QsvProgram (02-06-2016)</title>
+<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="tinymce.js"></script>
+<script>
+tinymce.init({
+	selector: "textarea",
+	language: 'vi_VN',
+	theme: "modern",
+	width: '100%',
+	height: 400,
+	
+	plugins: [
+		'autosave advlist autolink lists link image charmap preview hr anchor pagebreak',
+		'searchreplace wordcount visualblocks visualchars codemirror fullscreen',
+		'insertdatetime media nonbreaking save table contextmenu directionality',
+		'emoticons htmlwidget paste textcolor colorpicker textpattern imagetools'
+	],
+	toolbar: [
+		"undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect removeformat",
+		"fontselect fontsizeselect | forecolor backcolor | htmlwidget table | link unlink | image media | preview code"
+	],
+	
+	widget_list_url: '/process/wglist.php',
+	widget_popup_width: 900,
+	widget_popup_height: 500,
+	
+	codemirror: {
+    	indentOnInit: true,
+    	path: 'CodeMirror'
+    },
+
+    /*
+	content_css : [
+		"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
+		"//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"
+	],
+	*/
+	content_style: "body{margin:10px}",
+	fontsize_formats: "8px 9px 10px 11px 12px 14px 16px 18px 20px 22px 24px",
+	table_default_styles: {
+		borderCollapse: 'collapse'
+	},
+	table_class_list: [
+		{title: 'Mặc định', value: 'table table-hover highlight table-bordered bordered'},
+		{title: 'Có viền', value: 'table table-hover highlight table-bordered bordered'},
+		{title: 'Viền ngang', value: 'table table-hover highlight'},
+		{title: 'Ngựa vằn', value: 'table table-hover highlight table-striped striped'}
+	],
+	table_default_attributes: {
+	  class: 'table table-hover highlight table-bordered bordered'
+	},
+	
+    images_upload_url: '/process/uploadx.php',
+    images_upload_base_path: '',
+    images_upload_credentials: true,
+
+	file_picker_types: 'image',
+	file_picker_callback: function(callback, value, meta) {
+		var $uplr = $('#mce-upload');
+		if($uplr.length==0) {
+			$uplr = $('<input id="mce-upload" type="file">');
+			$uplr.appendTo($('body')).hide();
+		}
+		$uplr.unbind('change');
+
+	    if (meta.filetype == 'image') {
+			$uplr.change(function() {
+	        	var file = this.files[0],
+	        		reader = new FileReader();
+	          	reader.onload = function(e) {
+	          		callback(e.target.result);
+	          	};
+	          	reader.readAsDataURL(file);
+	        });
+	        $uplr.click();
+	    }
+	    if (meta.filetype == 'media') {}
+	    if (meta.filetype == 'file') {}
+	},
+
+	image_advtab: true,
+	convert_urls: true,
+	relative_urls: false,
+	remove_script_host: true,
+  verify_html: false,
+  entity_encoding : 'raw'
+});
+</script>
+</head>
+<body>
+<div style="width:800px;margin:20px auto">
+  <textarea name="content" style="width:100%"></textarea>
+</div>
+</body>
+</html>

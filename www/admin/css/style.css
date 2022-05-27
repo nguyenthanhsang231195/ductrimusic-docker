@@ -1,0 +1,630 @@
+html,
+body {
+  height: 100%;
+  background: #2b2b2b;
+  font-size: 12px;
+}
+a,
+a:hover,
+a:focus,
+object,
+embed {
+  outline: 0;
+}
+
+header {
+  line-height: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+header:before,
+header:after {
+  content: " ";
+  display: table;
+}
+header:after {
+  clear: both;
+}
+
+header .logo {
+  float: left;
+  margin-right: 20px;
+}
+header .logo a {
+  color: #e6e6e6;
+  font-size: 20px;
+  text-decoration: none;
+}
+header .logo a:hover {
+  color: #fff;
+}
+
+header .language {
+  float: left;
+  color: #fff;
+  margin-right: 10px;
+}
+header .language form {
+  display: inline-block;
+}
+
+header .welcome {
+  float: right;
+  list-style: none;
+  color: #f2f2f2;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+header .welcome li {
+  display: inline;
+  padding-left: 10px;
+}
+header .welcome a {
+  color: #ccc;
+  text-decoration: none;
+}
+header .welcome a:hover {
+  color: #fff;
+}
+
+#toggler {
+  float: left;
+  background: #e32926;
+  border-radius: 2px;
+  color: #fff;
+  margin-right: 10px;
+  padding: 3px 8px;
+  line-height: 24px;
+  text-decoration: none;
+}
+#menu {
+  float: left;
+  width: 200px;
+}
+#body {
+  margin-left: 200px;
+}
+
+#sidebar {
+  list-style: none;
+  background: #428bca;
+  background-clip: padding-box;
+  border-radius: 2px;
+  margin-left: 15px;
+  padding: 0;
+  line-height: 20px;
+}
+#sidebar > li {
+  position: relative;
+  border-bottom: 1px solid #5697d0;
+}
+#sidebar > li.panel {
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+#sidebar > li:last-child {
+  border-bottom: none;
+}
+#sidebar > li > a {
+  display: block;
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 6px 0 6px 10px;
+  text-decoration: none;
+}
+#sidebar > li > a:hover {
+  background: #3071a9;
+}
+#sidebar > li > a span {
+  margin-left: 10px;
+}
+#sidebar.mini > li > a span {
+  position: absolute;
+  display: none;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #1963aa;
+  height: 32px;
+  left: 32px;
+  line-height: 32px;
+  margin-left: 0;
+  padding-left: 15px;
+  top: 0;
+  width: 168px;
+  z-index: 1000;
+}
+#sidebar.mini > li:hover > a span {
+  display: block;
+}
+#sidebar > li a b {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#sidebar > li ul {
+  list-style: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 0;
+  padding: 0;
+}
+#sidebar.mini > li > ul {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  left: 32px;
+  top: 32px;
+  width: 168px;
+  z-index: 1000;
+}
+#sidebar.mini > li:hover > ul {
+  display: block;
+}
+#sidebar > li ul li {
+  position: relative;
+  background: #fff;
+}
+#sidebar > li ul li.active {
+  background: #e7eeff;
+}
+#sidebar > li ul li a {
+  display: block;
+  border-top: 1px dotted #e4e4e4;
+  color: #616161;
+  font-size: 11px;
+  padding: 3px 0 4px 37px;
+  text-decoration: none;
+}
+#sidebar > li ul li a:hover {
+  background: #fafafa;
+}
+#sidebar > li ul li:first-child a {
+  border-top: 1px solid #fafafa;
+}
+#sidebar > li ul li a i {
+  position: absolute;
+  top: 6px;
+  left: 18px;
+}
+#sidebar > li ul li a b {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+}
+#sidebar > li .dropdown-menu {
+  position: static;
+  float: none;
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#sidebar > li .dropdown-menu li a {
+  padding-left: 42px;
+}
+#sidebar > li .dropdown-menu li a i {
+  left: 23px;
+}
+#sidebar > li .dropdown-backdrop {
+  position: static;
+}
+#sidebar-collapse {
+  position: relative;
+  color: #999;
+  cursor: pointer;
+  margin-left: 10px;
+  text-align: center;
+}
+#sidebar-collapse:before {
+  border-top: 1px solid #666;
+  content: "";
+  display: inline-block;
+  height: 0;
+  left: 15px;
+  position: absolute;
+  right: 15px;
+  top: 8px;
+}
+
+#content {
+  padding: 0 15px;
+  min-height: 380px;
+}
+footer {
+  font-size: 12px;
+  height: 20px;
+  text-align: right;
+}
+footer p {
+  margin: 0 15px;
+  line-height: 20px;
+}
+
+/* ------------ Login ------------ */
+.login {
+  background: #eee;
+  min-height: 100%;
+}
+.login form {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.login form h2 {
+  margin-top: 0;
+}
+.login input {
+  margin-bottom: 5px;
+}
+.login .checkbox {
+  font-weight: normal;
+}
+
+/* ------------ Filter ------------ */
+.filter {
+  background: #f0f0f0;
+  padding: 5px 5px 10px;
+  margin: 10px;
+}
+.filter div {
+  display: inline-block;
+  margin: 5px 20px 0 0;
+}
+.filter input,
+.filter select {
+  margin-left: 5px;
+  padding: 2px 5px;
+  height: 26px;
+  width: 150px;
+}
+.filter button {
+  height: 24px;
+}
+
+/* ------------ Custom ------------ */
+.control {
+  float: right;
+  margin-right: -5px;
+  margin-top: -3px;
+  line-height: 20px;
+}
+.control button {
+  font-weight: bold;
+  padding: 2px 7px;
+}
+.control button i {
+  margin-right: 7px;
+}
+
+.custom input[type="text"],
+.custom input[type="password"],
+.custom textarea {
+  padding: 10px;
+  width: 90%;
+}
+.custom select {
+  margin: 5px 0;
+  padding: 5px;
+  width: auto;
+}
+.custom input[type="radio"],
+.custom input[type="checkbox"] {
+  margin: 10px 10px 0 -20px;
+}
+
+.custom input.small,
+.custom input.age {
+  width: 50px;
+}
+
+.custom input.date,
+.custom input.time,
+.custom input.birthday,
+.custom input.code,
+.custom input.money {
+  width: 80px;
+}
+.custom input.datetime {
+  width: 150px;
+}
+
+.custom dd > .checkbox {
+  min-height: 30px;
+}
+
+.custom .holder {
+  list-style: none;
+  padding: 0 0 10px;
+  margin: 0;
+}
+.custom .holder li {
+  padding-bottom: 5px;
+}
+.custom .holder li > input {
+  width: 100px;
+}
+.custom .holder li > input.large {
+  width: 200px;
+}
+.custom .holder li > input.small {
+  width: 60px;
+}
+.custom .holder li > input.tiny {
+  width: 45px;
+}
+.custom .holder .plupload {
+  margin: 10px 0 20px;
+}
+
+.custom .inline {
+  display: inline;
+  margin: 0 20px;
+}
+.custom .inline span {
+  margin-right: 10px;
+}
+.custom .inline input {
+  width: 40px;
+}
+.custom .inline select {
+  display: inline;
+  padding: 6px 0;
+  width: 55px;
+}
+
+.action {
+  float: right;
+  white-space: nowrap;
+}
+.action a {
+  margin: 0 2px;
+  text-decoration: none;
+}
+
+.page {
+  text-align: center;
+}
+.page ul {
+  margin: 10px 0 5px;
+}
+
+.display img {
+  margin: 0 5px 5px 0;
+}
+
+.datalist {
+  width: 90%;
+}
+
+.check {
+  margin-top: 15px;
+  margin-left: -20px;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list li {
+  display: inline-block;
+  padding: 5px 10px 0 0;
+  width: 33.3%;
+}
+
+.viewalbum {
+}
+.viewalbum img {
+  width: 100%;
+  height: auto;
+}
+.viewalbum p {
+  text-align: center;
+}
+
+/* ------------ Module ------------ */
+.removef {
+  display: none;
+  border: 1px solid #f00;
+  color: #f00;
+  cursor: pointer;
+  margin: 5px auto;
+  text-align: center;
+}
+.removei {
+  display: none;
+  position: absolute;
+  color: #f00;
+  cursor: pointer;
+  font-size: 16px;
+  top: -10px;
+  right: -10px;
+  padding: 0 5px;
+  z-index: 100;
+}
+.removei:hover {
+  background: #ff0;
+  border-radius: 20px;
+  font-size: 20px;
+  top: -13px;
+  right: -13px;
+  padding: 0 7px;
+}
+.handler {
+  display: none;
+}
+
+.plupload {
+  width: 90%;
+  height: 60px;
+}
+.plupload .status {
+  font-style: italic;
+  margin-top: 5px;
+}
+.plupload .preview {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 4px;
+  width: 60px;
+  height: 60px;
+}
+.plupload .preview .removef,
+.plupload .preview .removei {
+  display: block;
+}
+
+.mupload {
+  width: 90%;
+}
+.mupload .status {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.mupload .preview {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 0 5px 7px;
+  margin-top: 10px;
+}
+.mupload .preview:before,
+.mupload .preview:after {
+  content: " ";
+  display: table;
+}
+.mupload .preview:after {
+  clear: both;
+}
+.mupload .preview > div {
+  position: relative;
+  float: left;
+  margin: 7px 5px 0 2px;
+  width: 80px;
+  height: 80px;
+}
+.mupload .preview > div:nth-child(7n + 0) {
+  margin-right: 0;
+}
+.mupload .preview > div .removef,
+.mupload .preview > div .removei {
+  display: block;
+}
+
+.mupload .handler {
+  display: none;
+  position: absolute;
+  background: #f57c00;
+  color: #fff;
+  font-size: 16px;
+  cursor: move;
+  left: 0;
+  top: 0;
+  padding: 0 5px;
+  text-align: center;
+  z-index: 100;
+}
+.mupload .preview > div:hover .handler {
+  display: block;
+}
+
+.mupload .ghost,
+.mupload .chosen,
+.mupload .drag {
+  background: #eee;
+}
+
+/* ------------ Statis ------------ */
+#statis .panel-body {
+  height: 150px;
+}
+
+/* ------------ Responsive ------------ */
+.magbtmz,
+.magbtmz .table {
+  margin-bottom: 0;
+}
+.padleftz {
+  padding-left: 0;
+}
+.padrightz {
+  padding-right: 0;
+}
+.horizontal label {
+  white-space: nowrap;
+}
+
+/* Trang thai don hang */
+.table > tbody > tr > td.new,
+.table > tbody > tr.new > td {
+  background-color: #9fc5e8;
+}
+.table-hover > tbody > tr > td.new:hover,
+.table-hover > tbody > tr.new:hover > td {
+  background-color: #7eb6eb;
+}
+
+.table > tbody > tr > td.confirm,
+.table > tbody > tr.confirm > td {
+  background-color: #d5a6bd;
+}
+.table-hover > tbody > tr > td.confirm:hover,
+.table-hover > tbody > tr.confirm:hover > td {
+  background-color: #d49bb7;
+}
+
+.table > tbody > tr > td.produce,
+.table > tbody > tr.produce > td {
+  background-color: #ffe599;
+}
+.table-hover > tbody > tr > td.produce:hover,
+.table-hover > tbody > tr.produce:hover > td {
+  background-color: #fada7b;
+}
+
+.table > tbody > tr > td.shipping,
+.table > tbody > tr.shipping > td {
+  background-color: #f9cb9c;
+}
+.table-hover > tbody > tr > td.shipping:hover,
+.table-hover > tbody > tr.shipping:hover > td {
+  background-color: #fac691;
+}
+
+.table > tbody > tr > td.delivered,
+.table > tbody > tr.delivered > td {
+  background-color: #b6d7a8;
+}
+.table-hover > tbody > tr > td.delivered:hover,
+.table-hover > tbody > tr.delivered:hover > td {
+  background-color: #a8da93;
+}
+
+.table > tbody > tr > td.done,
+.table > tbody > tr.done > td {
+  background-color: #6aa84f;
+  color: #fff;
+}
+.table-hover > tbody > tr > td.done:hover,
+.table-hover > tbody > tr.done:hover > td {
+  background-color: #5d9246;
+  color: #fff;
+}
+
+.table > tbody > tr > td.error,
+.table > tbody > tr.error > td {
+  background-color: #d9d9d9;
+}
+.table-hover > tbody > tr > td.error:hover,
+.table-hover > tbody > tr.error:hover > td {
+  background-color: #b4b4b4;
+}

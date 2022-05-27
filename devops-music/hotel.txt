@@ -1,0 +1,19 @@
+Docker Toolbox
+npm install -g hotel
+hotel start
+hotel add http://127.0.0.1:31001 -n ductrimusic
+hotel add http://127.0.0.1:31001 -n www.ductrimusic
+hotel add http://127.0.0.1:31003 -n admin.ductrimusic
+
+
+Configuring local domains
+Edit ~/.hotel/conf.json
+{
+  "tld": "qsv"
+}
+
+System configuration
+Proxy auto-config file: http://localhost:2000/proxy.pac
+OS X:  Network Preferences > Advanced > Proxies > Automatic Proxy Configuration
+Windows: Settings > Network and Internet > Proxy > Use setup script
+Linux / Ubuntu: System Settings > Network > Network Proxy > Automatic

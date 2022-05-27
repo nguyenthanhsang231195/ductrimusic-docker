@@ -1,0 +1,6 @@
+node_modules
+upload/cache
+upload/thumb
+upload/data
+upload/logs
+views/package-lock.json

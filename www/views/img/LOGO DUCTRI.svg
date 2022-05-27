@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1691px" height="191px" viewBox="0 0 1691 191" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>LOGO</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="3.9986662%" y1="21.2403278%" x2="100%" y2="84.2705871%" id="linearGradient-1">
+            <stop stop-color="#98682F" offset="0%"></stop>
+            <stop stop-color="#D9A675" offset="44.225567%"></stop>
+            <stop stop-color="#F8E3A5" offset="46.1470026%"></stop>
+            <stop stop-color="#D59C64" offset="47.5782005%"></stop>
+            <stop stop-color="#A37641" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Official" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="250" font-family="Baskerville" line-spacing="200" font-weight="normal">
+        <g id="LOGO" fill="url(#linearGradient-1)">
+            <text id="ĐỨC-TRÍ-MUSIC">
+                <tspan x="0" y="231">Đ</tspan>
+                <tspan x="215.356445" y="279.046875" font-size="200">ỨC </tspan>
+                <tspan x="553.051758" y="231">T</tspan>
+                <tspan x="752.783203" y="279.046875" font-size="200">RÍ </tspan>
+                <tspan x="994.091797" y="231">M</tspan>
+                <tspan x="1251.19629" y="279.046875" font-size="200">USIC</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

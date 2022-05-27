@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Administrator
+Redirect 301 /acp /admin
+Redirect 301 /qsv /admin
+Redirect 301 /qsvf /admin
+
+# Sitemap
+RewriteRule ^sitemap.txt$ sitemap.php
+RewriteRule ^sitemap.xml$ sitemap.php
+
+# Files / images
+RewriteRule ^files/((.+)/)*(\d+)x/(.+)$ file.php?id=$4&nw=$3 [L]
+RewriteRule ^files/((.+)/)*x(\d+)/(.+)$ file.php?id=$4&nh=$3 [L]
+RewriteRule ^files/((.+)/)*(\d+)x(\d+)/(.+)$ file.php?id=$5&nw=$3&nh=$4 [L]
+RewriteRule ^files/((.+)/)*(.+)$ file.php?id=$3 [L]
+
+# Rewrite all
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]

@@ -1,0 +1,95 @@
+/* Extra small devices (phones, up to 480px) */
+@media (max-width: 767px) {
+  header .welcome a span{
+	display: none;
+  }
+  
+  #sidebar{
+	position:absolute;
+	width: 200px;
+	z-index: 1000;
+  }
+  #sidebar ul{
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+  }
+  #sidebar-collapse {
+	display: none;
+  }
+  
+  #body{
+	margin-top: 2px;  
+  }
+  
+  .list li{
+	width: 50%;
+  }
+
+  .magbtmz {
+	margin-bottom: 20px;
+  }
+  .padleftz{
+	padding-left: 15px;
+  }
+  .padrightz{
+	padding-right: 15px;
+  }
+  
+  .plupload, .mupload{
+	width: 100%;
+  }
+  
+  .custom label {
+	margin-top: 10px;
+  }
+  .custom input[type="text"],
+  .custom input[type="password"],
+  .custom textarea {
+	width: 100%;
+  }
+  
+  #patient .panel-body{
+	height: auto;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .horizontal dt {
+    float: left;
+    width: 160px;
+    text-align: right;
+  }
+  .horizontal label{
+	line-height: 32px;
+  }
+  .horizontal dd {
+    margin-left: 180px;
+	margin-bottom: 10px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .magbtmz {
+	margin-bottom: 20px;
+  }
+  .padleftz{
+	padding-left: 15px;
+  }
+  .padrightz{
+	padding-right: 15px;
+  }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  
+}
